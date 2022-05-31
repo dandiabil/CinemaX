@@ -1,0 +1,53 @@
+@import "../../variables.scss";
+
+button {
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 26px;
+  border: none;
+  border-radius: 4px;
+  font-family: $poppins;
+}
+
+.button-signin {
+  background-color: $light-purple;
+  color: $white;
+}
+
+.button-signin-red {
+  background-color: $red;
+  color: $white;
+  width: 100%;
+}
+
+.button-signup-red,
+.button-next-page,
+.button-prev-page,
+.button-buy,
+.button-rent {
+  background-color: $red;
+  color: $white;
+}
+
+.button-next-page-disabled,
+.button-prev-page-disabled {
+  border: 1px solid $red;
+  color: $red;
+  cursor: default;
+}
+
+.button-page-number-active {
+  background-color: $red;
+  color: $white;
+}
+
+@media (max-width: 428px) {
+  .button-next-page-disabled,
+  .button-prev-page-disabled,
+  .button-signup-red,
+  .button-next-page,
+  .button-prev-page {
+    width: fit-content;
+    padding: 4px 12px;
+  }
+}
