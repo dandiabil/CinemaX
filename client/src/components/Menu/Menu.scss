@@ -1,0 +1,61 @@
+@import "../../variables.scss";
+
+.menu {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .menu {
+    position: fixed;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: #e2bb3bef;
+
+    &__wrapper {
+      height: 90%;
+      color: $light-purple;
+      font-family: $poppins;
+    }
+
+    &__nav {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 48px;
+
+      a {
+        text-decoration: none;
+      }
+
+      .nav__link {
+        width: 100%;
+        transition: 0.5s;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          background-color: $yellow;
+        }
+      }
+    }
+
+    &__close {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 32px;
+      text-align: right;
+      width: 90%;
+      height: 65px;
+    }
+  }
+}

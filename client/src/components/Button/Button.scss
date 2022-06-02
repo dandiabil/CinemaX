@@ -1,0 +1,92 @@
+@import "../../variables.scss";
+
+button {
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 26px;
+  border: none;
+  border-radius: 4px;
+  font-family: $poppins;
+  transition: 0.5s;
+}
+
+.button__signin {
+  width: 100%;
+}
+
+.button__catalogs,
+.button__back {
+  background-color: $yellow;
+  color: $light-purple;
+}
+
+.button__catalogs:hover,
+.button__back:hover {
+  background-color: #d3ae33;
+}
+
+.button__signup,
+.button__signin,
+.button__nextpage,
+.button__prevpage,
+.button__buy,
+.button__rent,
+.button__checkout {
+  background-color: $red;
+  color: $white;
+}
+
+.button__signup:hover,
+.button__signin:hover,
+.button__nextpage:hover,
+.button__prevpage:hover,
+.button__buy:hover,
+.button__rent:hover,
+.button__checkout:hover {
+  background-color: rgb(143, 10, 10);
+}
+
+.button__buy,
+.button__rent {
+  width: 87px;
+}
+
+.button__nextpage--disabled,
+.button__prevpage--disabled {
+  border: 1px solid $red;
+  color: $red;
+  cursor: default;
+}
+
+.button__page {
+  border: 1px solid $red;
+  width: 42px;
+  border-radius: 0;
+  padding: 4px 8px;
+  color: $red;
+
+  &:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+
+  &:last-child {
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+.button__page--active {
+  background-color: $red;
+  color: $white;
+}
+
+@media (max-width: 428px) {
+  .button__nextpage--disabled,
+  .button__prevpage--disabled,
+  .button__signup,
+  .button__nextpage,
+  .button__prevpage,
+  .button__checkout {
+    width: fit-content;
+    padding: 4px 12px;
+  }
+}

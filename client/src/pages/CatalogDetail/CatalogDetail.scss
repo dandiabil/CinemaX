@@ -1,0 +1,257 @@
+@import "../../variables.scss";
+
+.detail {
+  background-color: $purple;
+  padding: 124px 0;
+
+  .back__button {
+    width: 80%;
+    margin: 26px auto;
+  }
+
+  &__wrapper {
+    background-color: $white;
+    max-width: 1080px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 20px;
+    min-height: 550px;
+    color: $light-purple;
+  }
+
+  &__header {
+    padding: 24px 0;
+    border-bottom: 1px solid $light-purple;
+    margin: 0 50px;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-family: $poppins;
+  }
+
+  &__description {
+    padding: 50px;
+    display: flex;
+    align-items: flex-start;
+    gap: 42px;
+    justify-content: flex-start;
+
+    .poster {
+      text-align: center;
+
+      .photo {
+        border-radius: 4px;
+        margin-bottom: 12px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+      }
+
+      .awards {
+        font-family: $poppins;
+        font-weight: 600;
+        background-color: #f2f2f2;
+        border-radius: 12px;
+        padding: 8px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    .description {
+      font-family: $roboto;
+      width: 100%;
+
+      &__header,
+      &__body,
+      &__buttons {
+        background-color: #f2f2f2;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+        padding: 8px 25px;
+        border-radius: 12px;
+      }
+
+      &__header {
+        margin-bottom: 12px;
+      }
+
+      &__body {
+        margin-bottom: 12px;
+
+        .body {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin: 12px 0;
+
+          &__title {
+            width: 20%;
+            font-weight: bold;
+          }
+
+          &__result {
+            width: 75%;
+            color: $black;
+          }
+        }
+      }
+
+      &__buttons {
+        font-family: $poppins;
+        h1 {
+          font-size: 16px;
+        }
+
+        .buttons {
+          &__group {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            p {
+              font-size: 15px;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+      &__title {
+        font-size: 32px;
+        margin-bottom: 12px;
+      }
+
+      &__subtitle {
+        color: $black;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 4px;
+
+        p {
+          display: inline-block;
+          padding: 0 12px;
+          border-right: 1px solid $black;
+
+          &:first-child {
+            padding-left: 0px;
+          }
+
+          &:last-child {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .detail {
+    &__description {
+      gap: 12px;
+
+      .description {
+        &__title {
+          font-size: 24px;
+        }
+
+        &__subtitle {
+          p {
+            padding: 0 6px;
+          }
+        }
+
+        &__body {
+          margin-bottom: 12px;
+
+          .body {
+            display: block;
+
+            &__title {
+              font-size: 20px;
+              width: auto;
+            }
+
+            &__result {
+              width: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .detail {
+    &__description {
+      display: block;
+
+      .poster {
+        .awards {
+          margin-bottom: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 428px) {
+  .detail {
+    &__header {
+      margin: 0 24px;
+    }
+
+    &__title {
+      font-size: 24px;
+    }
+
+    &__description {
+      padding: 25px;
+      .poster {
+        .photo {
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      .description {
+        &__title {
+          font-size: 24px;
+        }
+
+        &__subtitle {
+          p {
+            padding: 0 3px;
+          }
+        }
+
+        &__body {
+          margin-bottom: 12px;
+
+          .body {
+            display: block;
+
+            &__title {
+              font-size: 20px;
+              width: auto;
+            }
+
+            &__result {
+              width: auto;
+            }
+          }
+        }
+
+        .buttons {
+          &__group {
+            display: block;
+
+            p {
+              margin-bottom: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

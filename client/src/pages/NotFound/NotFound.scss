@@ -1,0 +1,42 @@
+@import "../../variables.scss";
+
+.notfound {
+  height: 100vh;
+  background-color: $purple;
+
+  &__wrapper {
+    padding: 120px;
+    border-radius: 8px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 90%;
+    background-color: $white;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  &__image {
+    width: fit-content;
+    margin: 24px auto;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__button {
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 428px) {
+  .notfound {
+    &__wrapper {
+      padding: 60px;
+    }
+  }
+}

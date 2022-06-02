@@ -1,0 +1,218 @@
+@import "../../variables.scss";
+
+.catalogs {
+  background-color: $purple;
+  padding: 156px 0;
+  min-height: 100vh;
+
+  &__header {
+    width: 90%;
+    max-width: 1080px;
+    background-color: $white;
+    margin: 0 auto;
+    border-radius: 18px;
+    padding: 32px 70px;
+    margin-bottom: 25px;
+  }
+
+  .header__title {
+    color: $light-purple;
+    font-family: $poppins;
+    margin-bottom: 5px;
+  }
+
+  .header__subtitle {
+    color: $light-purple;
+    font-family: $roboto;
+    margin-bottom: 8px;
+  }
+
+  &__results {
+    max-width: 1080px;
+    width: 90%;
+    background-color: $white;
+    margin: 0 auto;
+    min-height: 200px;
+    border-radius: 18px;
+    padding: 48px 70px;
+
+    .placeholder {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .results {
+      display: grid;
+      justify-items: center;
+      margin-bottom: 12px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 26px;
+      min-height: 200px;
+
+      .photo__container {
+        margin-bottom: 24px;
+        position: relative;
+        height: 190px;
+        transition: 0.5s;
+
+        &:hover {
+          transform: scale(1.2);
+
+          .description {
+            opacity: 1;
+          }
+        }
+
+        .photo {
+          width: 120px;
+          height: 190px;
+          box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+          cursor: pointer;
+        }
+
+        .description {
+          position: relative;
+          opacity: 0;
+          font-family: $poppins;
+          font-weight: 600;
+          height: 190px;
+          text-align: center;
+          color: $white;
+          font-size: 12px;
+          width: 120px;
+          margin: 0 auto -190px auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          top: -195px;
+          backdrop-filter: blur(1px);
+          background: linear-gradient(
+              90deg,
+              rgba(0, 0, 0, 0) 0%,
+              rgba(0, 0, 0, 0.3) 50%,
+              rgba(0, 0, 0, 0) 100%
+            ),
+            linear-gradient(
+              180deg,
+              rgba(217, 217, 217, 0) 0%,
+              rgba(123, 116, 116, 0.3) 50%,
+              rgba(217, 217, 217, 0) 100%
+            );
+          cursor: pointer;
+          transition: 0.5s;
+
+          .title {
+            width: 100px;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+
+      &__page {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-radius: 4px;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        margin-top: 12px;
+        scrollbar-color: $red;
+        scrollbar-width: thin;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+          height: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+          box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+        }
+
+        &::-webkit-scrollbar-track-piece {
+          background-color: $purple;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          height: 5px;
+          background-color: $red;
+        }
+      }
+
+      h3 {
+        font-family: $poppins;
+        color: $red;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .catalogs {
+    &__results {
+      .results {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .catalogs {
+    &__results {
+      .results {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .catalogs {
+    &__results {
+      .results {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+      }
+    }
+
+    .buttons {
+      h3 {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: 428px) {
+  .catalogs {
+    &__header {
+      padding: 32px;
+    }
+    .header__title {
+      font-size: 12px;
+    }
+
+    .header__subtitle {
+      font-size: 14px;
+    }
+
+    &__results {
+      padding: 48px 12px;
+
+      .results {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 6px;
+      }
+    }
+  }
+}
