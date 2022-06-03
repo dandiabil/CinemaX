@@ -14,15 +14,21 @@
   }
 
   &__title {
-    font-size: 64px;
+    font-size: 42px;
+    width: 60%;
     position: relative;
     z-index: 2;
+    line-height: 1.25;
   }
 
   &__subtitle {
-    font-size: 32px;
+    font-size: 24px;
     position: relative;
     z-index: 2;
+    margin-bottom: 12px;
+    h3 {
+      font-weight: 500;
+    }
   }
 
   .image__container {
@@ -69,18 +75,22 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
+    gap: 16px;
     justify-content: space-evenly;
     color: $light-purple;
+    font-family: $poppins;
   }
 
   &__title {
     font-size: 32px;
-    font-family: $poppins;
+    margin-bottom: 12px;
   }
 
   &__subtitle {
-    font-size: 24px;
-    font-family: $roboto;
+    h3 {
+      font-size: 24px;
+      font-weight: 500;
+    }
   }
 
   .image {
@@ -115,6 +125,7 @@
   &__title {
     font-family: $poppins;
     font-size: 24px;
+    margin-bottom: 12px;
   }
 
   &__subtitle {
@@ -212,11 +223,11 @@
 @media (max-width: 1024px) {
   .hero {
     &__title {
-      font-size: 48px;
+      font-size: 32px;
     }
 
     &__subtitle {
-      font-size: 28px;
+      font-size: 18px;
     }
 
     &__input {
@@ -308,6 +319,15 @@
 }
 
 @media (max-width: 640px) {
+  .hero {
+    &__title {
+      width: 80%;
+    }
+
+    &__subtitle {
+      width: 80%;
+    }
+  }
   .section2 {
     padding: 148px 0;
 

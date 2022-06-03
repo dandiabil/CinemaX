@@ -11,7 +11,6 @@ const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [status, setStatus] = useState("");
   const myCart = useSelector((state) => state.cart) || [];
-  const auth = useSelector((state) => state.user.isAuthenticated) || false;
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -27,8 +26,6 @@ const Cart = () => {
   function handleCheckout() {
     if (myCart.length === 0) return setStatus("Cart Empty");
     navigate("/checkout", { state: { price: totalPrice } });
-
-    console.log(myCart.length);
   }
 
   return (

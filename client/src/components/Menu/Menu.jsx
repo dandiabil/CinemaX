@@ -1,7 +1,6 @@
 import { Icon } from "@iconify/react";
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button";
 import "./Menu.scss";
 
 const Menu = ({ onClick, auth, logout }) => {

@@ -54,10 +54,10 @@ const Dashboard = () => {
         <div className="hero__wrapper">
           <div>
             <div className="hero__title">
-              <h1>Tagline</h1>
+              <h1>Watch Movies In Easy Way</h1>
             </div>
             <div className="hero__subtitle">
-              <h3>Subhealine</h3>
+              <h3>Rent or Buy. It's Up To You</h3>
             </div>
             <div className="hero__button">
               <Button
@@ -86,7 +86,10 @@ const Dashboard = () => {
               <h1>Anytime & Anywhere.</h1>
             </div>
             <div className="section2__subtitle">
-              <h3>Subhealine</h3>
+              <h3>
+                Watch your favorite movies anytime with family, friends or your
+                loved ones.
+              </h3>
             </div>
           </div>
         </div>
@@ -96,10 +99,13 @@ const Dashboard = () => {
           <div className="rectangle"></div>
           <header className="section3__header">
             <div className="section3__title">
-              <h1>Tagline here</h1>
+              <h1>Don't know what to watch?</h1>
             </div>
             <div className="section3__subtitle">
-              <p>Watch over 1,000 movies with few simple steps</p>
+              <p>
+                There are over 1,000 movies that you can watch with few simple
+                steps
+              </p>
             </div>
           </header>
           <div className="section3__description">
@@ -136,13 +142,14 @@ const Dashboard = () => {
       <section className="section4">
         <div className="section4__wrapper">
           <h1>What are you waiting for ?</h1>
-          <p>Watch over 1,000 movies with few simple steps</p>
+          <p>Let's start watching movies by creating an account below.</p>
           <form
             autoComplete="off"
             className="section4__input"
             onSubmit={handleSubmit}
           >
             <InputText
+              type="email"
               name="Email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
