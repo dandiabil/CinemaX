@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import InputText from "../../components/InputText/InputText";
 import NoPoster from "../../assets/img-unavailable.png";
 import "./Catalogs.scss";

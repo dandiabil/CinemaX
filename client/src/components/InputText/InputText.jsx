@@ -1,4 +1,3 @@
-import React from "react";
 import "./InputText.scss";
 
 const InputText = ({ onChange, name, value, type = "text" }) => {

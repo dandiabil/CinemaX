@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import InputText from "../../components/InputText/InputText";
 import Password from "../../components/Password/Password";
 import Button from "../../components/Button/Button";

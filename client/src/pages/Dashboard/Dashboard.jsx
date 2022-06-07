@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import InputText from "../../components/InputText/InputText";
 import Button from "../../components/Button/Button";
 import Illustration from "../../assets/undraw_horror_movie_3988.svg";

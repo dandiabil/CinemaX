@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import Button from "../Button/Button";
@@ -9,15 +9,8 @@ import { userLogOut } from "../../Redux/reducer/userSlice";
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const cart = useSelector((state) => state.cart) || [];
   const auth = useSelector((state) => state.user.isAuthenticated) || false;
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (cart) {
-  //     return;
-  //   }
-  // }, []);
 
   function toggleMenu() {
     setOpenMenu(!openMenu);

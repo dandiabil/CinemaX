@@ -1,4 +1,3 @@
-import React from "react";
 import "./Password.scss";
 
 const Password = ({ onChange, name, value }) => {
