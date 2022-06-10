@@ -47,7 +47,6 @@ const Login = () => {
       if (res.status === 200) {
         const jwt = localStorage.setItem("token", res.data.jwToken);
         navigate("/", { replace: true });
-        window.location.reload();
       }
       setStatus(res.data.msg);
 

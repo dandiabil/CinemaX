@@ -57,7 +57,6 @@ const Register = () => {
       setEmail("");
       setFullName("");
       setPassword("");
-      window.location.reload();
     } catch (error) {
       console.log(error.message);
     }

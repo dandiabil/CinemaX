@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     verifyAuth();
-  }, []);
+  }, [auth]);
 
   async function verifyAuth() {
     const token = localStorage.getItem("token");

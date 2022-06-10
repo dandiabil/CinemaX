@@ -6,64 +6,38 @@ import Button from "../../components/Button/Button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovies } from "../../Redux/reducer/searchSlice";
+import {
+  fetchMovies,
+  fetchMoviesByPage,
+  getSearchResults,
+  getSearchTitle,
+  lastSearch,
+} from "../../Redux/reducer/searchSlice";
 
 const Catalogs = () => {
   const [title, setTitle] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchResults, setSearchResults] = useState(null);
-  const [totalResults, setTotalResults] = useState(0);
 
   const dispatch = useDispatch();
 
-  const searchTitle = useSelector((state) => state.search.searchTitle) || "";
-  const lastSearchResults =
-    useSelector((state) => state.search.searchResults) || [];
+  const searchTitle = useSelector(getSearchTitle) || "";
+  const searchResults = useSelector(getSearchResults) || [];
 
   const navigate = useNavigate();
 
-  const pageCount = Math.ceil(totalResults / 10) || 1;
+  const pageCount =
+    searchResults.Response === "True"
+      ? Math.ceil(searchResults.totalResults / 10) || 1
+      : 1;
 
-  useEffect(() => {
-    if (!searchResults) {
-      setSearchResults(lastSearchResults.Search);
-      setTotalResults(lastSearchResults.totalResults);
-    }
-  }, []);
+  useEffect(() => {}, [currentPage]);
 
-  useEffect(() => {
-    searchMovieChangePage();
-
-    async function searchMovieChangePage() {
-      await axios
-        .get(
-          `http://www.omdbapi.com/?apikey=7819d7f3&s=${searchTitle}&page=${currentPage}&type=movie`
-        )
-        .then((res) => {
-          setSearchResults(res.data.Search);
-        })
-        .catch((err) => console.log(err));
-    }
-  }, [currentPage]);
-
-  async function searchMovie(e) {
+  function handleSearch(e) {
     e.preventDefault();
     if (!title) return;
 
-    await axios
-      .get(
-        `http://www.omdbapi.com/?apikey=7819d7f3&s=${title}&page=1&type=movie`
-      )
-      .then((res) => {
-        setSearchResults(res.data.Search);
-        setTotalResults(res.data.totalResults);
-        dispatch(
-          getMovies({
-            data: { searchTitle: title, searchResults: res.data },
-          })
-        );
-      })
-      .catch((err) => console.log(err));
+    dispatch(fetchMovies(title));
+    dispatch(lastSearch({ title }));
 
     setTitle("");
     setCurrentPage(1);
@@ -71,18 +45,19 @@ const Catalogs = () => {
 
   function changeLastPage() {
     setCurrentPage(pageCount);
+    dispatch(fetchMoviesByPage({ title: searchTitle, page: pageCount }));
   }
 
   function changeFirstPage() {
     setCurrentPage(1);
+    dispatch(fetchMoviesByPage({ title: searchTitle, page: 1 }));
   }
 
   function changePage(e) {
     const page = parseInt(e.target.innerText);
     setCurrentPage(page);
+    dispatch(fetchMoviesByPage({ title: searchTitle, page }));
   }
-
-  // console.log("page number", pageCount);
 
   function populatePagination() {
     let length = pageCount;
@@ -101,7 +76,7 @@ const Catalogs = () => {
         <form
           autoComplete="off"
           className="header__input"
-          onSubmit={searchMovie}
+          onSubmit={handleSearch}
         >
           <InputText
             name="Movie name"
@@ -112,13 +87,13 @@ const Catalogs = () => {
       </header>
 
       <section className="catalogs__results">
-        {!searchResults ? (
+        {searchResults.Response === "False" || searchResults.length === 0 ? (
           <div className="placeholder">
             <h1>Nothing to show</h1>
           </div>
         ) : (
           <div className="results">
-            {searchResults.map((result) => (
+            {searchResults.Search.map((result) => (
               <figure
                 key={result.imdbID}
                 className="photo__container"

@@ -44,7 +44,7 @@ const Cart = () => {
           <div className="buy__body">
             {myCart &&
               myCart.map((item) => {
-                if (item.type == "Buy")
+                if (item.type == "buy")
                   return (
                     <div key={item.id}>
                       <figure className="photo__container">
@@ -85,7 +85,7 @@ const Cart = () => {
           <div className="rent__body">
             {myCart &&
               myCart.map((item) => {
-                if (item.type == "Rent")
+                if (item.type == "rent")
                   return (
                     <div key={item.id}>
                       <figure className="photo__container">

@@ -1,23 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 export const cartSlice = createSlice({
   name: "cart",
   initialState: [],
   reducers: {
-    addItemToCart: (state, action) => {
-      const cart = {
-        id: new Date().getTime(),
-        data: action.payload.data,
-        price: action.payload.price,
-        type: action.payload.type,
-      };
-      state.push(cart);
+    addItemToCart: {
+      reducer(state, action) {
+        state.push(action.payload);
+      },
+      prepare(data, price, type) {
+        console.log(data, price, type);
+        return {
+          payload: {
+            id: nanoid(),
+            data,
+            price,
+            type,
+          },
+        };
+      },
     },
     removeItemFromCart: (state, action) =>
       state.filter((item) => item.id !== action.payload.id),
-    removeAllItem: (state) => {
-      return (state = []);
-    },
+    removeAllItem: (state) => (state = []),
   },
 });
 
